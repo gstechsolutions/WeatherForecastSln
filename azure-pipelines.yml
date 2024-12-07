@@ -40,6 +40,13 @@ steps:
     pathToPublish: '$(build.artifactStagingDirectory)/WebApp'
     artifactName: 'WebAppArtifact'
 
+# Debugging steps (optional)
+- script: dir $(Pipeline.Workspace)
+  displayName: 'List Pipeline Workspace Contents'
+
+- script: dir $(Pipeline.Workspace)/WebAppArtifact
+  displayName: 'List WebAppArtifact Contents'
+  
 # 5. Deploy to Azure App Service
 - task: AzureWebApp@1
   displayName: 'Deploy Weather to Azure App Service'
