@@ -37,7 +37,7 @@ steps:
 # 4. Publish build artifacts
 - task: PublishBuildArtifacts@1
   inputs:
-    pathToPublish: '$(build.artifactStagingDirectory)'
+    pathToPublish: '$(build.artifactStagingDirectory)/WebApp'
     artifactName: 'WebAppArtifact'
 
 # 5. Deploy to Azure App Service
