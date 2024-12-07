@@ -44,7 +44,7 @@ steps:
 - script: dir $(Pipeline.Workspace)
   displayName: 'List Pipeline Workspace Contents'
 
-- script: dir $(Pipeline.Workspace)/WebAppArtifact
+- script: dir $(Pipeline.Workspace)/s
   displayName: 'List WebAppArtifact Contents'
   
 # 5. Deploy to Azure App Service
@@ -54,5 +54,5 @@ steps:
     azureSubscription: 'weaterforecastServiceConn'
     appType: 'webApp'
     appName: 'weatherforecast'
-    package: '$(Pipeline.Workspace)/WebAppArtifact'
+    package: '$(Pipeline.Workspace)/s'
 
