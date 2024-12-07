@@ -34,4 +34,18 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+# 4. Publish build artifacts
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(build.artifactStagingDirectory)/WebApp'
+    artifactName: 'drop'
+
+# 5. Deploy to Azure App Service
+- task: AzureWebApp@1
+  displayName: 'Deploy Weather to Azure App Service'
+  inputs:
+    azureSubscription: 'weaterforecastServiceConn'
+    appType: 'webApp'
+    appName: 'weatherforecast'
+    package: '$(Pipeline.Workspace)/drop'
 
